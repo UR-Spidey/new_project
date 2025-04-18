@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mac White - Premium Cosmetics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+
+    <style>
+        /* General Styling - WHITE THEME */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8; /* Light off-white background */
+            color: #333333; /* Dark grey text color */
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1100px; /* Max width for larger screens */
+            margin: 30px auto; /* Adjusted margin */
+            padding: 30px; /* Increased padding */
+            background-color: #ffffff; /* White container background */
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow for depth */
+        }
+
+        /* Stylish Headings (Dark Text on Light Background) */
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: #333333; /* Dark grey for headings */
+            font-weight: 700;
+            margin-bottom: 0.8em;
+        }
+
+        h2 {
+             /* Keep pink underline accent */
+            border-bottom: 2px solid #ff85c1;
+            padding-bottom: 5px;
+            display: inline-block;
+            color: #111; /* Slightly darker for H2 */
+        }
+
+        h3 {
+             color: #555555; /* Medium grey for H3 */
+             font-weight: 700; /* Bolder H3 */
+        }
+
+        p {
+            line-height: 1.7;
+            color: #555555; /* Medium grey for paragraphs */
+            font-weight: 400;
+        }
+
+        a {
+            color: #d81b60; /* Darker pink for links */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #ff69b4; /* Lighter pink on hover */
+        }
+
+        /* Navigation - Light Theme */
+        .navbar {
+            background-color: #ffffff; /* White navbar */
+            padding: 12px 0;
+            text-align: center;
+            margin-bottom: 0; /* Remove bottom margin */
+            border-bottom: 1px solid #eeeeee; /* Light border */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow under navbar */
+            position: sticky; /* Make navbar sticky */
+            top: 0; /* Stick to the top */
+            z-index: 1000; /* Ensure it's above other content */
+        }
+
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar li {
+            display: inline;
+            margin: 0 18px;
+        }
+
+        .navbar a {
+            font-family: 'Montserrat', sans-serif;
+            color: #555555; /* Medium grey nav links */
+            font-weight: 700;
+            font-size: 1.05em; /* Slightly smaller nav font */
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+        }
+
+        /* Active/Hover Nav Link Style */
+        .navbar a:hover, .navbar a.active {
+            color: #d81b60; /* Dark pink active/hover text */
+            background-color: #fce4ec; /* Very light pink background */
+        }
+
+        /* Brand Name Specific Styling - White Theme */
+        .brand-name {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.8em; /* Adjusted size */
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 25px;
+            margin-top: 10px; /* Add some space above */
+            color: #ff69b4; /* Accent Pink for brand name */
+        }
+
+
+        /* Page Section Styling */
+        .page-section {
+            display: none;
+            animation: fadeIn 0.6s ease-in-out; /* Slightly longer fade */
+            padding-top: 20px;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+
+        /* Home Page Product Grid (WITHOUT Images) - White Theme */
+        .product-grid {
+            display: grid;
+            /* Adjust minmax based on desired card size */
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px; /* Increased gap */
+            margin-top: 30px;
+        }
+
+        .product-item {
+            background-color: #ffffff; /* White product background */
+            border: 1px solid #eeeeee; /* Light grey border */
+            /* Adjusted padding now that image is removed */
+            padding: 25px;
+            text-align: center;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow */
+        }
+
+        .product-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Enhanced shadow on hover */
+            border-color: #ff85c1; /* Pink border on hover */
+        }
+
+        /* Removed .product-item img rule */
+
+        .product-item h3 {
+            margin-top: 0; /* Reset top margin */
+            margin-bottom: 10px;
+            font-size: 1.3em;
+            color: #333;
+            font-weight: 700;
+        }
+
+        .product-item p {
+            font-size: 0.95em;
+            color: #555;
+            margin-bottom: 20px;
+            flex-grow: 1; /* Allow paragraph to push button down */
+        }
+
+        /* Button Style - White Theme */
+        .btn {
+            display: inline-block;
+            background-color: #ff69b4; /* Pink button background */
+            color: #ffffff; /* White button text */
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            align-self: center; /* Center button */
+            margin-top: auto; /* Push button to bottom if flex space allows */
+        }
+
+        .btn:hover {
+            background-color: #d81b60; /* Darker pink on hover */
+            transform: scale(1.05);
+            color: #ffffff;
+        }
+
+        /* Specific Button Styles */
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            color: white;
+        }
+
+        /* About Page Specifics */
+        .certificates img {
+            max-width: 150px;
+            margin: 10px;
+            border: 1px solid #dddddd; /* Light grey border for certificates */
+            border-radius: 4px;
+        }
+
+        /* Section separation */
+         section > section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eeeeee; /* Lighter separator */
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home" data-target="home" class="nav-link active">Home</a></li>
+            <li><a href="#about" data-target="about" class="nav-link">About Us</a></li>
+            <li><a href="#contact" data-target="contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="brand-name">Mac White</div>
+
+        <section id="home" class="page-section active">
+            <h2>Our Featured Products</h2>
+            <p>Discover beauty with our high-quality cosmetic range, designed for radiant results.</p>
+
+            <div class="product-grid">
+                <div class="product-item">
+                    <h3>Face Cream</h3>
+                    <p>Nourish and revitalize your skin with our signature face cream, crafted for a radiant complexion.</p>
+                    <a href="#contact" class="btn learn-more-btn" data-target="contact">Learn More</a>
+                </div>
+                <div class="product-item">
+                    <h3>Body Lotion</h3>
+                    <p>Hydrate and soften your skin from head to toe with our luxurious, fast-absorbing body lotion.</p>
+                    <a href="#contact" class="btn learn-more-btn" data-target="contact">Learn More</a>
+                </div>
+                <div class="product-item">
+                    <h3>Face Serum</h3>
+                    <p>A concentrated, potent formula designed for a radiant, youthful glow and improved skin texture.</p>
+                    <a href="#contact" class="btn learn-more-btn" data-target="contact">Learn More</a>
+                </div>
+                <div class="product-item">
+                    <h3>Whitening Soap</h3>
+                    <p>Experience gentle cleansing for a brighter, more even complexion. Suitable for daily use.</p>
+                    <a href="#contact" class="btn learn-more-btn" data-target="contact">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="page-section">
+            <h2>About Us</h2>
+            <section>
+                <h3>Our Passion for Cosmetics</h3>
+                <p>Welcome to Mac White, where beauty meets quality. We specialize in creating premium cosmetic products designed to enhance your natural radiance. Our formulations are crafted with care, using high-quality ingredients to deliver visible results.</p>
+            </section>
+            <section>
+                <h3>High-Quality Manufacturing</h3>
+                <p>We pride ourselves on our meticulous manufacturing process. Every Mac White product is produced in state-of-the-art facilities that adhere to the strictest quality control standards. From sourcing raw materials to final packaging, excellence is our benchmark.</p>
+            </section>
+            <section>
+                <h3>Professional & Certificated</h3>
+                <p>Mac White is a professional manufacturer committed to safety and efficacy. Our processes are backed by industry certifications, ensuring that you receive products that are not only effective but also trustworthy and safe for your skin. We believe in transparency and quality you can rely on.</p>
+                <div class="certificates">
+                    <p>(Certification details or logos can be placed here)</p>
+                </div>
+            </section>
+            <section>
+                <h3>Follow Us</h3>
+                <p>
+                    Check out our latest updates and tutorials on our YouTube channel:
+                    <a href="https://youtube.com/@macwhiteskincareproducts?si=Y2rTB71pmwer2fOJ" target="_blank">Visit our Channel on YouTube</a>
+                </p>
+            </section>
+        </section>
+
+        <section id="contact" class="page-section">
+            <h2>Get In Touch</h2>
+            <section>
+                <h3>Purchase Online</h3>
+                <p>Browse and purchase your favorite Mac White products directly from our online store. Click the link below to start shopping!</p>
+                <a href="#" target="_blank" class="btn">Visit Online Store</a>
+            </section>
+            <section>
+                <h3>Contact Us via WhatsApp</h3>
+                <p>Have questions about our products or need assistance? Send us a message directly on WhatsApp for a quick response!</p>
+                <a href="https://wa.me/94727351513" target="_blank" class="btn whatsapp-btn">Chat on WhatsApp (072 735 1513)</a>
+            </section>
+            <section>
+                 <p>For partnerships, wholesale inquiries, or other questions, please reach out via WhatsApp or stay tuned for more contact options.</p>
+            </section>
+        </section>
+
+    </div> <script>
+        // JavaScript remains the same for section switching
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.navbar .nav-link');
+            const learnMoreButtons = document.querySelectorAll('.learn-more-btn');
+            const pageSections = document.querySelectorAll('.page-section');
+            const navbar = document.querySelector('.navbar');
+            const container = document.querySelector('.container');
+            const navbarHeight = navbar ? navbar.offsetHeight : 70; // Get navbar height for scroll offset
+
+            function showSection(targetId) {
+                pageSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.toggle('active', link.dataset.target === targetId);
+                });
+
+                // Scroll adjustment for sticky navbar
+                if(container) {
+                    const elementTop = targetSection ? targetSection.getBoundingClientRect().top + window.pageYOffset : container.offsetTop;
+                    const offsetPosition = elementTop - navbarHeight - 20; // Extra 20px padding
+
+                    if (!document.startViewTransition) {
+                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                    }
+                }
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const targetId = link.dataset.target;
+
+                    if (document.startViewTransition) {
+                        document.startViewTransition(() => showSection(targetId));
+                    } else {
+                        showSection(targetId);
+                    }
+                    // window.location.hash = '#' + targetId;
+                });
+            });
+
+            learnMoreButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const targetId = button.dataset.target;
+
+                    if (document.startViewTransition) {
+                        document.startViewTransition(() => showSection(targetId));
+                    } else {
+                        showSection(targetId);
+                    }
+                    // window.location.hash = '#' + targetId;
+                });
+            });
+
+            let initialTargetId = 'home';
+            if (window.location.hash) {
+                const hashId = window.location.hash.substring(1);
+                if (document.getElementById(hashId)) {
+                    initialTargetId = hashId;
+                }
+            }
+             setTimeout(() => {
+                 showSection(initialTargetId);
+                 const targetSection = document.getElementById(initialTargetId);
+                 const containerTop = container ? container.offsetTop : 0;
+                 const elementTop = targetSection ? targetSection.getBoundingClientRect().top + window.pageYOffset : containerTop;
+                 const offsetPosition = elementTop - navbarHeight - 20;
+                 if(initialTargetId !== 'home' || window.pageYOffset > 50) {
+                   window.scrollTo({ top: offsetPosition, behavior: 'auto' });
+                 }
+
+             }, 0);
+
+        });
+    </script>
+
+</body>
+</html>
